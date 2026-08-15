@@ -555,11 +555,18 @@
       document.getElementById('statusBanner').classList.remove('show');
     }
 
+    let loadTasksRequestId = 0;
+
     async function loadTasks() {
+      const requestId = ++loadTasksRequestId;
       const { data, error } = await supabaseClient
         .from('tasks')
         .select('*')
         .order('created_at', { ascending: true });
+
+      // Si mientras esperábamos esta respuesta se pidió una carga más nueva,
+      // la descartamos para no pisar la pantalla con datos viejos.
+      if (requestId !== loadTasksRequestId) return;
 
       if (error) {
         showBanner('No se pudo conectar con la base de datos. Revisa tu conexión e intenta de nuevo.', 'error');
