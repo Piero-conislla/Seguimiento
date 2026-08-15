@@ -681,8 +681,9 @@
       if (error) {
         showBanner('No se pudo guardar el cambio. Intenta de nuevo.', 'error');
         console.error(error);
+        return;
       }
-      // No hace falta recargar a mano: la suscripción en tiempo real actualiza la pantalla.
+      await loadTasks();
     }
 
     async function deleteTask(taskId) {
@@ -694,7 +695,9 @@
       if (error) {
         showBanner('No se pudo eliminar la tarea. Intenta de nuevo.', 'error');
         console.error(error);
+        return;
       }
+      await loadTasks();
     }
 
     function renderMetrics() {
@@ -859,6 +862,7 @@
       document.getElementById('taskPriority').value = 'medium';
       document.getElementById('taskAssignee').value = '';
       document.getElementById('modalNewTask').classList.remove('active');
+      await loadTasks();
     });
 
     document.getElementById('taskTitle').addEventListener('keypress', (e) => {
