@@ -56,468 +56,151 @@
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
 
-    .auth-box h1 {
-      font-size: 22px;
-      margin-bottom: 4px;
-      text-align: center;
-    }
+    .auth-box h1 { font-size: 22px; margin-bottom: 4px; text-align: center; }
+    .auth-box .subtitle { text-align: center; color: var(--text-secondary); font-size: 13px; margin-bottom: 24px; }
 
-    .auth-box .subtitle {
-      text-align: center;
-      color: var(--text-secondary);
-      font-size: 13px;
-      margin-bottom: 24px;
-    }
-
-    .auth-tabs {
-      display: flex;
-      margin-bottom: 20px;
-      border-bottom: 1px solid var(--border);
-    }
+    .auth-tabs { display: flex; margin-bottom: 20px; border-bottom: 1px solid var(--border); }
 
     .auth-tab {
-      flex: 1;
-      text-align: center;
-      padding: 10px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-secondary);
-      border-bottom: 2px solid transparent;
-      background: none;
+      flex: 1; text-align: center; padding: 10px; cursor: pointer; font-size: 14px;
+      font-weight: 500; color: var(--text-secondary); border-bottom: 2px solid transparent; background: none;
     }
-
-    .auth-tab.active {
-      color: var(--primary);
-      border-bottom-color: var(--primary);
-    }
-
+    .auth-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
     .auth-form { display: none; }
     .auth-form.active { display: block; }
-
     .auth-box .form-group { margin-bottom: 14px; }
     .auth-box input { width: 100%; }
     .auth-box button[type="submit"] { width: 100%; margin-top: 8px; }
 
-    .auth-msg {
-      margin-top: 14px;
-      font-size: 13px;
-      padding: 10px 12px;
-      border-radius: 6px;
-      display: none;
-    }
-
+    .auth-msg { margin-top: 14px; font-size: 13px; padding: 10px 12px; border-radius: 6px; display: none; }
     .auth-msg.error { display: block; background: var(--danger-light); color: var(--danger); }
     .auth-msg.success { display: block; background: var(--success-light); color: var(--success); }
 
     /* ---------- PANTALLA DE ROL PENDIENTE ---------- */
     #pendingScreen {
-      display: none;
-      min-height: 100vh;
-      align-items: center;
-      justify-content: center;
-      background: var(--bg-secondary);
-      padding: 24px;
-      text-align: center;
+      display: none; min-height: 100vh; align-items: center; justify-content: center;
+      background: var(--bg-secondary); padding: 24px; text-align: center;
     }
-
-    #pendingScreen .box {
-      max-width: 420px;
-      background: white;
-      border-radius: 12px;
-      padding: 40px;
-      border: 1px solid var(--border);
-    }
+    #pendingScreen .box { max-width: 420px; background: white; border-radius: 12px; padding: 40px; border: 1px solid var(--border); }
 
     /* ---------- APP ---------- */
     #appRoot { display: none; }
 
-    .app-container {
-      display: flex;
-      min-height: 100vh;
-    }
+    .app-container { display: flex; min-height: 100vh; }
 
     .sidebar {
-      width: 250px;
-      background: #1a1a1a;
-      color: white;
-      padding: 24px;
-      overflow-y: auto;
-      position: fixed;
-      height: 100vh;
-      left: 0;
-      top: 0;
-      display: flex;
-      flex-direction: column;
+      width: 250px; background: #1a1a1a; color: white; padding: 24px; overflow-y: auto;
+      position: fixed; height: 100vh; left: 0; top: 0; display: flex; flex-direction: column;
     }
 
-    .sidebar h1 {
-      font-size: 18px;
-      margin-bottom: 24px;
-      font-weight: 700;
-    }
+    .sidebar h1 { font-size: 18px; margin-bottom: 24px; font-weight: 700; }
 
-    .sidebar-user {
-      background: rgba(255,255,255,0.06);
-      border-radius: 6px;
-      padding: 10px 12px;
-      margin-bottom: 20px;
-      font-size: 12px;
-      line-height: 1.5;
-    }
-
-    .sidebar-user .role-badge {
-      display: inline-block;
-      margin-top: 4px;
-      padding: 2px 8px;
-      border-radius: 10px;
-      background: var(--primary);
-      font-size: 11px;
-      font-weight: 600;
-    }
+    .sidebar-user { background: rgba(255,255,255,0.06); border-radius: 6px; padding: 10px 12px; margin-bottom: 20px; font-size: 12px; line-height: 1.5; }
+    .sidebar-user .role-badge { display: inline-block; margin-top: 4px; padding: 2px 8px; border-radius: 10px; background: var(--primary); font-size: 11px; font-weight: 600; }
 
     .sidebar-nav { flex: 1; }
 
-    .nav-item {
-      padding: 12px 16px;
-      margin-bottom: 8px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .nav-item:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    .nav-item.active {
-      background: var(--primary);
-      color: white;
-    }
-
+    .nav-item { padding: 12px 16px; margin-bottom: 8px; border-radius: 6px; cursor: pointer; transition: all 0.2s; font-size: 14px; font-weight: 500; }
+    .nav-item:hover { background: rgba(255, 255, 255, 0.1); }
+    .nav-item.active { background: var(--primary); color: white; }
     .nav-item.hidden { display: none; }
 
-    .logout-btn {
-      margin-top: 12px;
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.2);
-      color: white;
-      width: 100%;
-    }
-
+    .logout-btn { margin-top: 12px; background: transparent; border: 1px solid rgba(255,255,255,0.2); color: white; width: 100%; }
     .logout-btn:hover { background: rgba(255,255,255,0.1); }
 
-    .main-content {
-      margin-left: 250px;
-      flex: 1;
-      overflow-y: auto;
-      padding: 32px;
-    }
+    .main-content { margin-left: 250px; flex: 1; overflow-y: auto; padding: 32px; }
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; flex-wrap: wrap; gap: 16px; }
+    .header h1 { font-size: 28px; font-weight: 600; }
+    .header-controls { display: flex; gap: 12px; flex-wrap: wrap; }
 
-    .header h1 {
-      font-size: 28px;
-      font-weight: 600;
-    }
+    button { padding: 10px 16px; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; font-size: 14px; transition: all 0.2s; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
 
-    .header-controls {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    button {
-      padding: 10px 16px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 500;
-      font-size: 14px;
-      transition: all 0.2s;
-    }
-
-    button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      opacity: 0.9;
-    }
-
-    .btn-secondary {
-      background: white;
-      border: 1px solid var(--border);
-      color: var(--text-primary);
-    }
-
-    .btn-secondary:hover {
-      background: var(--bg-tertiary);
-    }
-
-    .btn-danger {
-      background: var(--danger);
-      color: white;
-    }
-
-    .btn-small {
-      padding: 6px 12px;
-      font-size: 12px;
-    }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-secondary { background: white; border: 1px solid var(--border); color: var(--text-primary); }
+    .btn-secondary:hover { background: var(--bg-tertiary); }
+    .btn-danger { background: var(--danger); color: white; }
+    .btn-small { padding: 6px 12px; font-size: 12px; }
 
     select, input[type="text"], input[type="date"], input[type="number"], input[type="email"], input[type="password"], textarea {
-      padding: 10px 12px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-family: inherit;
-      font-size: 14px;
-      background: white;
+      padding: 10px 12px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit; font-size: 14px; background: white;
     }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 2px var(--primary-light); }
 
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 2px var(--primary-light);
-    }
+    .tab-container { display: flex; gap: 16px; margin-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .tab-button { padding: 12px 16px; background: transparent; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-weight: 500; color: var(--text-secondary); transition: all 0.2s; }
+    .tab-button.active { color: var(--primary); border-bottom-color: var(--primary); }
 
-    .tab-container {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 24px;
-      border-bottom: 1px solid var(--border);
-    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
 
-    .tab-button {
-      padding: 12px 16px;
-      background: transparent;
-      border: none;
-      border-bottom: 3px solid transparent;
-      cursor: pointer;
-      font-weight: 500;
-      color: var(--text-secondary);
-      transition: all 0.2s;
-    }
+    .table-wrapper { background: white; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    thead { background: var(--bg-secondary); }
+    th { padding: 12px 16px; text-align: left; font-weight: 600; color: var(--text-secondary); border-bottom: 1px solid var(--border); white-space: nowrap; }
+    td { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+    tr:hover { background: var(--bg-tertiary); }
 
-    .tab-button.active {
-      color: var(--primary);
-      border-bottom-color: var(--primary);
-    }
+    .sort-header { cursor: pointer; user-select: none; }
+    .sort-header:hover { color: var(--primary); }
 
-    .tab-content {
-      display: none;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    .table-wrapper {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      overflow-x: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-    }
-
-    thead {
-      background: var(--bg-secondary);
-    }
-
-    th {
-      padding: 12px 16px;
-      text-align: left;
-      font-weight: 600;
-      color: var(--text-secondary);
-      border-bottom: 1px solid var(--border);
-      white-space: nowrap;
-    }
-
-    td {
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    tr:hover {
-      background: var(--bg-tertiary);
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-
+    .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 500; white-space: nowrap; }
     .badge.activo { background: var(--success-light); color: var(--success); }
-    .badge.pausado { background: var(--warning-light); color: var(--warning); }
-    .badge.bloqueado { background: var(--danger-light); color: var(--danger); }
+    .badge.pausado { background: var(--danger-light); color: var(--danger); font-weight: 700; }
     .badge.pendiente { background: #e0e0e0; color: #666; }
     .badge.finalizado { background: var(--success-light); color: var(--success); }
-    .badge.completado { background: var(--success-light); color: var(--success); }
-    .badge.en-progreso, .badge.programado { background: var(--primary-light); color: var(--primary); }
-    .badge.alto, .badge.crítico { background: var(--danger-light); color: var(--danger); }
-    .badge.medio { background: var(--warning-light); color: var(--warning); }
-    .badge.bajo { background: var(--success-light); color: var(--success); }
+    .badge.completado, .badge.pagado { background: var(--success-light); color: var(--success); }
+    .badge.en-progreso { background: var(--primary-light); color: var(--primary); }
+    .badge.alto, .badge.abierto { background: var(--danger-light); color: var(--danger); }
+    .badge.medio, .badge['en-seguimiento'], .badge.pendiente-por-pagar { background: var(--warning-light); color: var(--warning); }
 
-    .role-tag {
-      display: inline-block;
-      padding: 3px 10px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 600;
-    }
+    .text-danger { color: var(--danger); font-weight: 700; }
+
+    .role-tag { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
     .role-tag.admin { background: var(--danger-light); color: var(--danger); }
     .role-tag.lider { background: var(--primary-light); color: var(--primary); }
     .role-tag.asistente { background: var(--success-light); color: var(--success); }
     .role-tag.finanzas { background: var(--warning-light); color: var(--warning); }
     .role-tag.pendiente { background: #e0e0e0; color: #666; }
 
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-bottom: 24px;
-    }
+    .form-error { color: var(--danger); background: var(--danger-light); padding: 10px 14px; border-radius: 6px; margin-bottom: 16px; font-size: 13px; font-weight: 600; }
+    .modal-content-wide { max-width: 760px; }
+    .form-section-title { font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 24px 0 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-light); }
+    .form-section-title:first-of-type { margin-top: 0; }
+    .form-hint { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+    .fee-receipts-table { width: 100%; font-size: 12px; margin-top: 8px; border-collapse: collapse; }
+    .fee-receipts-table th, .fee-receipts-table td { padding: 6px 8px; border-bottom: 1px solid var(--border); text-align: left; }
+    .fee-receipts-empty { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
 
-    .metric-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 20px;
-      text-align: center;
-    }
+    .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .metric-card { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 20px; text-align: center; }
+    .metric-label { font-size: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .metric-value { font-size: 32px; font-weight: 700; color: var(--text-primary); }
 
-    .metric-label {
-      font-size: 12px;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 8px;
-    }
+    .modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 1000; align-items: center; justify-content: center; padding: 16px; }
+    .modal.active { display: flex; }
+    .modal-content { background: white; border-radius: 8px; padding: 32px; width: 100%; max-width: 600px; max-height: 90vh; overflow-y: auto; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); }
+    .modal-content h2 { font-size: 20px; font-weight: 600; margin-bottom: 20px; }
 
-    .metric-value {
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
+    .form-group { margin-bottom: 16px; }
+    label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; color: var(--text-secondary); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .modal-buttons { display: flex; gap: 12px; margin-top: 24px; }
+    .modal-buttons button { flex: 1; }
 
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-    }
-
-    .modal.active {
-      display: flex;
-    }
-
-    .modal-content {
-      background: white;
-      border-radius: 8px;
-      padding: 32px;
-      width: 100%;
-      max-width: 600px;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    }
-
-    .modal-content h2 {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .form-group {
-      margin-bottom: 16px;
-    }
-
-    label {
-      display: block;
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 6px;
-      color: var(--text-secondary);
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .modal-buttons {
-      display: flex;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .modal-buttons button {
-      flex: 1;
-    }
-
-    .chart-container {
-      position: relative;
-      height: 300px;
-      margin-bottom: 24px;
-    }
-
-    .charts-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-      gap: 32px;
-      margin-top: 24px;
-    }
+    .chart-container { position: relative; height: 300px; margin-bottom: 24px; }
+    .charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 32px; margin-top: 24px; }
 
     .variance-positive { color: var(--danger); font-weight: 600; }
     .variance-negative { color: var(--success); font-weight: 600; }
 
-    .link-cell {
-      color: var(--primary);
-      text-decoration: none;
-      cursor: pointer;
-    }
-
+    .link-cell { color: var(--primary); text-decoration: none; cursor: pointer; }
     .link-cell:hover { text-decoration: underline; }
 
     .action-buttons { display: flex; gap: 8px; }
-
-    .empty-state {
-      padding: 40px;
-      text-align: center;
-      color: var(--text-muted);
-    }
+    .empty-state { padding: 40px; text-align: center; color: var(--text-muted); }
 
     @media (max-width: 768px) {
       .sidebar { width: 60px; padding: 12px; }
@@ -602,7 +285,7 @@
         <div class="sidebar-nav">
           <div class="nav-item active" data-tab="proyectos" onclick="switchTab('proyectos')">📁 Proyectos</div>
           <div class="nav-item" data-tab="riesgos" onclick="switchTab('riesgos')">⚠️ Riesgos</div>
-          <div class="nav-item" data-tab="bitacora" onclick="switchTab('bitacora')">📝 Bitácora</div>
+          <div class="nav-item hidden" data-tab="facturacion" id="navFacturacion" onclick="switchTab('facturacion')">💰 Facturación</div>
           <div class="nav-item" data-tab="mantenimiento" onclick="switchTab('mantenimiento')">⚙️ Mantenimiento</div>
           <div class="nav-item" data-tab="auditoria" onclick="switchTab('auditoria')">📋 Auditoría</div>
           <div class="nav-item" data-tab="dashboard" onclick="switchTab('dashboard')">📈 Dashboard</div>
@@ -624,39 +307,28 @@
           </div>
 
           <div class="metric-grid">
-            <div class="metric-card">
-              <div class="metric-label">Proyectos Activos</div>
-              <div class="metric-value" id="activeProjectsCount">0</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-label">Proyectos en Riesgo</div>
-              <div class="metric-value" id="atRiskCount">0</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-label">Proyectos Bloqueados</div>
-              <div class="metric-value" id="blockedCount">0</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-label">Proyectos Finalizados</div>
-              <div class="metric-value" id="completedCount">0</div>
-            </div>
+            <div class="metric-card"><div class="metric-label">Proyectos Activos</div><div class="metric-value" id="activeProjectsCount">0</div></div>
+            <div class="metric-card"><div class="metric-label">Proyectos en Riesgo</div><div class="metric-value" id="atRiskCount">0</div></div>
+            <div class="metric-card"><div class="metric-label">Proyectos Bloqueados</div><div class="metric-value" id="blockedCount">0</div></div>
+            <div class="metric-card"><div class="metric-label">Proyectos Finalizados</div><div class="metric-value" id="completedCount">0</div></div>
           </div>
 
           <div class="table-wrapper">
             <table id="projectsTable">
               <thead>
                 <tr>
-                  <th>Nombre</th>
-                  <th>Cliente</th>
-                  <th>Servicio</th>
-                  <th>Inicio Real</th>
-                  <th>Fin Real</th>
-                  <th>Estado</th>
+                  <th class="sort-header" onclick="sortProjects('name')">Nombre <span id="sortArrow-name"></span></th>
+                  <th class="sort-header" onclick="sortProjects('status')">Estado Proyecto <span id="sortArrow-status"></span></th>
                   <th>Etapa</th>
                   <th>Riesgos Abiertos</th>
+                  <th>Tipo de Riesgo</th>
+                  <th>Cliente</th>
+                  <th>Servicio</th>
+                  <th class="sort-header" onclick="sortProjects('start_date')">Fecha Inicio <span id="sortArrow-start_date"></span></th>
+                  <th>Fecha Fin</th>
                   <th>Ciclo Real (días)</th>
                   <th>Ciclo Esperado (días)</th>
-                  <th>Varianza</th>
+                  <th>Cliente FI de Entrada</th>
                   <th>Drive</th>
                   <th>Acciones</th>
                 </tr>
@@ -677,33 +349,24 @@
           </div>
 
           <div class="metric-grid">
-            <div class="metric-card">
-              <div class="metric-label">Riesgos Abiertos</div>
-              <div class="metric-value" id="openRisksCount">0</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-label">Riesgos Críticos</div>
-              <div class="metric-value" id="criticalRisksCount">0</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-label">Score Promedio</div>
-              <div class="metric-value" id="avgRiskScore">0</div>
-            </div>
+            <div class="metric-card"><div class="metric-label">Riesgos Abiertos</div><div class="metric-value" id="openRisksCount">0</div></div>
+            <div class="metric-card"><div class="metric-label">Riesgos en Seguimiento</div><div class="metric-value" id="trackingRisksCount">0</div></div>
+            <div class="metric-card"><div class="metric-label">Riesgos Totales</div><div class="metric-value" id="totalRisksCount">0</div></div>
           </div>
 
           <div class="table-wrapper">
             <table id="risksTable">
               <thead>
                 <tr>
-                  <th>Proyecto</th>
-                  <th>Correlativo</th>
+                  <th class="sort-header" onclick="sortRisks('correlative')">Correlativo <span id="riskSortArrow-correlative"></span></th>
+                  <th class="sort-header" onclick="sortRisks('projectName')">Proyecto <span id="riskSortArrow-projectName"></span></th>
                   <th>Fecha Registro</th>
                   <th>Detalle</th>
-                  <th>Impacto</th>
-                  <th>Probabilidad</th>
-                  <th>Score</th>
-                  <th>Estado</th>
-                  <th>Cerrado</th>
+                  <th>Tipo de Riesgo</th>
+                  <th>Plan de Mitigación</th>
+                  <th>Responsable</th>
+                  <th>Fecha Cumplimiento</th>
+                  <th class="sort-header" onclick="sortRisks('status')">Estado <span id="riskSortArrow-status"></span></th>
                   <th>Acciones</th>
                 </tr>
               </thead>
@@ -712,40 +375,40 @@
           </div>
         </div>
 
-        <!-- TAB: BITÁCORA -->
-        <div id="bitacora-tab" class="tab-content">
+        <!-- TAB: FACTURACIÓN (exclusivo Finanzas) -->
+        <div id="facturacion-tab" class="tab-content">
           <div class="header">
-            <h1>Bitácora de Hitos y Facturación</h1>
+            <h1>Facturación</h1>
             <div class="header-controls">
-              <button class="btn-primary" id="btnNewMilestone" onclick="openModalNewMilestone()">+ Nuevo Hito</button>
+              <button class="btn-primary" onclick="openModalNewInvoice()">+ Nuevo Registro</button>
+              <button class="btn-secondary" onclick="exportInvoicesToExcel()">Exportar a Excel</button>
             </div>
           </div>
 
+          <div class="metric-grid">
+            <div class="metric-card"><div class="metric-label">Pendientes por Pagar</div><div class="metric-value" id="pendingInvoicesCount">0</div></div>
+            <div class="metric-card"><div class="metric-label">Pagadas</div><div class="metric-value" id="paidInvoicesCount">0</div></div>
+            <div class="metric-card"><div class="metric-label">Total Facturado</div><div class="metric-value" id="totalInvoiced">S/ 0</div></div>
+          </div>
+
           <div class="table-wrapper">
-            <table id="milestonesTable">
+            <table id="invoicesTable">
               <thead>
                 <tr>
-                  <th>Proyecto</th>
-                  <th>Hito</th>
-                  <th>Etapa</th>
-                  <th>Fecha Prevista</th>
-                  <th>Estado</th>
-                  <th>% Completitud</th>
-                  <th>Responsable</th>
-                  <th>Facturas Asociadas</th>
-                  <th>Acciones</th>
+                  <th>Proyecto</th><th>RUC</th><th>Serie</th><th>N° Correlativo</th>
+                  <th>Fecha Emisión</th><th>Fecha Vencimiento</th><th>Base</th><th>IGV</th><th>Total</th>
+                  <th>Detracción (S/)</th><th>Voucher Detracción</th><th>Estado</th><th>Fecha de Pago</th>
+                  <th>Recibos Honorarios</th><th>Acciones</th>
                 </tr>
               </thead>
-              <tbody id="milestonesBody"></tbody>
+              <tbody id="invoicesBody"></tbody>
             </table>
           </div>
         </div>
 
         <!-- TAB: MANTENIMIENTO -->
         <div id="mantenimiento-tab" class="tab-content">
-          <div class="header">
-            <h1>Mantenimiento de Catálogos</h1>
-          </div>
+          <div class="header"><h1>Mantenimiento de Catálogos</h1></div>
           <div id="mantenimientoNoAccess" class="empty-state" style="display:none;">
             Solo un Admin puede editar los catálogos. Puedes verlos, pero no modificarlos.
           </div>
@@ -758,14 +421,7 @@
           <div id="estados-subtab" class="tab-content active">
             <div class="table-wrapper">
               <table id="statusTable">
-                <thead>
-                  <tr>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Color</th>
-                    <th>Activo</th>
-                  </tr>
-                </thead>
+                <thead><tr><th>Nombre</th><th>Descripción</th><th>Color</th><th>Activo</th></tr></thead>
                 <tbody id="statusBody"></tbody>
               </table>
             </div>
@@ -774,15 +430,7 @@
           <div id="etapas-subtab" class="tab-content">
             <div class="table-wrapper">
               <table id="stagesTable">
-                <thead>
-                  <tr>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Orden</th>
-                    <th>Color</th>
-                    <th>Activo</th>
-                  </tr>
-                </thead>
+                <thead><tr><th>Nombre</th><th>Descripción</th><th>Orden</th><th>Color</th><th>Activo</th></tr></thead>
                 <tbody id="stagesBody"></tbody>
               </table>
             </div>
@@ -795,20 +443,9 @@
             <h1>Historial de Cambios</h1>
             <button class="btn-secondary" onclick="exportAuditToExcel()">Exportar a Excel</button>
           </div>
-
           <div class="table-wrapper">
             <table id="auditTable">
-              <thead>
-                <tr>
-                  <th>Fecha Cambio</th>
-                  <th>Usuario</th>
-                  <th>Proyecto</th>
-                  <th>Tipo</th>
-                  <th>De Estado</th>
-                  <th>A Estado</th>
-                  <th>Comentario</th>
-                </tr>
-              </thead>
+              <thead><tr><th>Fecha Cambio</th><th>Usuario</th><th>Proyecto</th><th>Tipo</th><th>De Estado</th><th>A Estado</th><th>Comentario</th></tr></thead>
               <tbody id="auditBody"></tbody>
             </table>
           </div>
@@ -816,55 +453,32 @@
 
         <!-- TAB: DASHBOARD -->
         <div id="dashboard-tab" class="tab-content">
-          <div class="header">
-            <h1>Dashboard Ejecutivo</h1>
-          </div>
+          <div class="header"><h1>Dashboard Ejecutivo</h1></div>
 
           <div class="metric-grid">
-            <div class="metric-card">
-              <div class="metric-label">Total Proyectos</div>
-              <div class="metric-value" id="totalProjects">0</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-label">Proyectos en Ejecución</div>
-              <div class="metric-value" id="executingProjects">0</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-label">Tasa de Completitud</div>
-              <div class="metric-value" id="completionRate">0%</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-label">Riesgos Críticos</div>
-              <div class="metric-value" id="criticalCount">0</div>
-            </div>
+            <div class="metric-card"><div class="metric-label">Total Proyectos</div><div class="metric-value" id="totalProjects">0</div></div>
+            <div class="metric-card"><div class="metric-label">Proyectos en Ejecución</div><div class="metric-value" id="executingProjects">0</div></div>
+            <div class="metric-card"><div class="metric-label">Proyectos en Riesgo</div><div class="metric-value" id="projectsAtRiskMetric">0</div></div>
+            <div class="metric-card"><div class="metric-label">Riesgos Abiertos</div><div class="metric-value" id="openRisksMetric">0</div></div>
           </div>
 
           <div class="charts-grid">
             <div class="chart-container"><canvas id="riskChart"></canvas></div>
             <div class="chart-container"><canvas id="stateChart"></canvas></div>
             <div class="chart-container"><canvas id="varianceChart"></canvas></div>
-            <div class="chart-container"><canvas id="milestoneBurnChart"></canvas></div>
+            <div class="chart-container"><canvas id="riskTypeChart"></canvas></div>
           </div>
         </div>
 
         <!-- TAB: USUARIOS (solo Admin) -->
         <div id="usuarios-tab" class="tab-content">
-          <div class="header">
-            <h1>Usuarios y Roles</h1>
-          </div>
+          <div class="header"><h1>Usuarios y Roles</h1></div>
           <p style="color:var(--text-secondary); margin-bottom:16px; font-size:13px;">
             Los usuarios nuevos aparecen aquí con rol "Pendiente" en cuanto crean su cuenta. Asígnales un rol para que puedan usar el sistema.
           </p>
           <div class="table-wrapper">
             <table id="usersTable">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Correo</th>
-                  <th>Rol</th>
-                  <th>Alta</th>
-                </tr>
-              </thead>
+              <thead><tr><th>Nombre</th><th>Correo</th><th>Rol</th><th>Alta</th></tr></thead>
               <tbody id="usersBody"></tbody>
             </table>
           </div>
@@ -877,14 +491,25 @@
   <div id="projectModal" class="modal">
     <div class="modal-content">
       <h2 id="projectModalTitle">Nuevo Proyecto</h2>
-      <form id="projectForm">
+      <div id="projectFormError" class="form-error" style="display:none;">Falta completar campos obligatorios.</div>
+      <form id="projectForm" novalidate>
         <div class="form-group">
           <label>Nombre *</label>
           <input type="text" id="projectName" required>
         </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Cliente *</label>
+            <input type="text" id="projectClient" required>
+          </div>
+          <div class="form-group">
+            <label>RUC</label>
+            <input type="text" id="projectRuc" maxlength="11" pattern="[0-9]{11}" title="El RUC debe tener 11 dígitos" placeholder="20123456789">
+          </div>
+        </div>
         <div class="form-group">
-          <label>Cliente *</label>
-          <input type="text" id="projectClient" required>
+          <label>Contacto</label>
+          <input type="text" id="projectContact" placeholder="Nombre, teléfono o email de contacto">
         </div>
         <div class="form-row">
           <div class="form-group">
@@ -898,8 +523,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label>Estado *</label>
-            <select id="projectStatus" required>
+            <label>Estado Proyecto *</label>
+            <select id="projectStatus" required onchange="updateStatusColor(this)">
               <option value="Pendiente">Pendiente</option>
               <option value="Activo">Activo</option>
               <option value="Pausado">Pausado</option>
@@ -923,8 +548,8 @@
             <input type="number" id="projectExpectedCycle" required min="1">
           </div>
           <div class="form-group">
-            <label>Link Drive</label>
-            <input type="text" id="projectDriveLink" placeholder="https://drive.google.com/...">
+            <label>Link Drive *</label>
+            <input type="text" id="projectDriveLink" required placeholder="https://drive.google.com/...">
           </div>
         </div>
         <div class="form-group">
@@ -938,6 +563,9 @@
             <option value="Cierre">Cierre</option>
           </select>
         </div>
+        <div class="form-group">
+          <label><input type="checkbox" id="projectAdvancePayment" style="width:auto;"> Cliente FI de Entrada</label>
+        </div>
         <div class="modal-buttons">
           <button type="submit" class="btn-primary">Guardar</button>
           <button type="button" class="btn-secondary" onclick="closeModal('projectModal')">Cancelar</button>
@@ -948,7 +576,7 @@
 
   <div id="riskModal" class="modal">
     <div class="modal-content">
-      <h2>Nuevo Riesgo</h2>
+      <h2 id="riskModalTitle">Nuevo Riesgo</h2>
       <form id="riskForm">
         <div class="form-group">
           <label>Proyecto *</label>
@@ -958,32 +586,31 @@
           <label>Detalle del Riesgo *</label>
           <textarea id="riskDetail" required rows="3"></textarea>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Impacto *</label>
-            <select id="riskImpact" required>
-              <option value="">Seleccionar</option>
-              <option value="Bajo">Bajo (1)</option>
-              <option value="Medio">Medio (2)</option>
-              <option value="Alto">Alto (3)</option>
-              <option value="Crítico">Crítico (5)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Probabilidad *</label>
-            <select id="riskProbability" required>
-              <option value="">Seleccionar</option>
-              <option value="Baja">Baja (1)</option>
-              <option value="Media">Media (3)</option>
-              <option value="Alta">Alta (5)</option>
-            </select>
-          </div>
-        </div>
         <div class="form-group">
-          <label>Plan de Mitigación</label>
-          <textarea id="riskMitigation" rows="3"></textarea>
+          <label>Tipo de Riesgo *</label>
+          <select id="riskType" required>
+            <option value="">Seleccionar</option>
+            <option value="Retraso de cronograma">Retraso de cronograma</option>
+            <option value="Afecta la calidad">Afecta la calidad</option>
+            <option value="Afecta el presupuesto">Afecta el presupuesto</option>
+            <option value="Rompe operatividad">Rompe operatividad</option>
+          </select>
         </div>
         <div class="form-row">
+          <div class="form-group">
+            <label>Plan de Mitigación</label>
+            <textarea id="riskMitigation" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Responsable</label>
+            <input type="text" id="riskMitigationResponsible" placeholder="Nombre del responsable">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Fecha de Cumplimiento</label>
+            <input type="date" id="riskMitigationDueDate">
+          </div>
           <div class="form-group">
             <label>Estado *</label>
             <select id="riskStatus" required>
@@ -992,9 +619,6 @@
               <option value="Mitigado">Mitigado</option>
               <option value="Cerrado">Cerrado</option>
             </select>
-          </div>
-          <div class="form-group">
-            <label><input type="checkbox" id="riskClosed" style="width:auto;"> Riesgo Cerrado</label>
           </div>
         </div>
         <div class="modal-buttons">
@@ -1005,56 +629,74 @@
     </div>
   </div>
 
-  <div id="milestoneModal" class="modal">
-    <div class="modal-content">
-      <h2 id="milestoneModalTitle">Nuevo Hito</h2>
-      <form id="milestoneForm">
-        <div class="form-group">
-          <label>Proyecto *</label>
-          <select id="milestoneProject" required></select>
-        </div>
-        <div class="form-group">
-          <label>Nombre del Hito *</label>
-          <input type="text" id="milestoneName" required>
-        </div>
+  <div id="invoiceModal" class="modal">
+    <div class="modal-content modal-content-wide">
+      <h2 id="invoiceModalTitle">Nuevo Registro de Facturación</h2>
+      <form id="invoiceForm">
+        <div class="form-section-title">a) Registro de la Factura</div>
         <div class="form-row">
           <div class="form-group">
-            <label>Etapa *</label>
-            <select id="milestoneStage" required>
-              <option value="Relevamiento">Relevamiento</option>
-              <option value="Diseño">Diseño</option>
-              <option value="Desarrollo">Desarrollo</option>
-              <option value="Testing">Testing</option>
-              <option value="Despliegue">Despliegue</option>
-              <option value="Cierre">Cierre</option>
+            <label>Proyecto *</label>
+            <select id="invoiceProject" required onchange="fillInvoiceRuc()"></select>
+          </div>
+          <div class="form-group">
+            <label>RUC del Cliente</label>
+            <input type="text" id="invoiceRuc" readonly placeholder="Se completa al elegir el proyecto">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Serie *</label><input type="text" id="invoiceSeries" required placeholder="F001"></div>
+          <div class="form-group"><label>Número Correlativo *</label><input type="text" id="invoiceNumber" required placeholder="00123"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Fecha de Emisión *</label><input type="date" id="invoiceIssueDate" required></div>
+          <div class="form-group"><label>Fecha de Vencimiento *</label><input type="date" id="invoiceDueDate" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Base *</label><input type="number" id="invoiceBase" step="0.01" min="0" required></div>
+          <div class="form-group"><label>IGV *</label><input type="number" id="invoiceIgv" step="0.01" min="0" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Total *</label><input type="number" id="invoiceTotal" step="0.01" min="0" required></div>
+          <div class="form-group"><label>Detracción en Soles</label><input type="number" id="invoiceDetraction" step="0.01" min="0"></div>
+        </div>
+        <div class="form-group"><label>Link de Voucher de Detracción</label><input type="text" id="invoiceVoucherLink" placeholder="https://..."></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Estado *</label>
+            <select id="invoiceStatus" required>
+              <option value="Pendiente por pagar">Pendiente por pagar</option>
+              <option value="Pagado">Pagado</option>
             </select>
           </div>
-          <div class="form-group">
-            <label>Responsable *</label>
-            <input type="text" id="milestoneResponsible" required>
-          </div>
+          <div class="form-group"><label>Fecha de Pago</label><input type="date" id="invoicePaymentDate"></div>
+        </div>
+
+        <div class="form-section-title">b) Registro de Recibos por Honorarios (RxH)</div>
+        <p class="form-hint">Una factura puede tener uno o más recibos por honorarios asociados. Complete los datos y presione "+ Agregar Recibo".</p>
+        <div class="form-row">
+          <div class="form-group"><label>Nombre Proveedor</label><input type="text" id="invoiceReceiptProvider" placeholder="Nombre del proveedor"></div>
+          <div class="form-group"><label>Número de Registro</label><input type="text" id="invoiceReceiptRegistrationNumber" placeholder="RH-0001"></div>
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label>Fecha Prevista *</label>
-            <input type="date" id="milestoneDate" required>
+          <div class="form-group"><label>Fecha de Vencimiento</label><input type="date" id="invoiceReceiptDueDate"></div>
+          <div class="form-group"><label>Fecha de Pago</label><input type="date" id="invoiceReceiptPaymentDate"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Banco</label><input type="text" id="invoiceReceiptBank" placeholder="Nombre del banco"></div>
+          <div class="form-group"><label>Total a Pagar</label><input type="number" id="invoiceReceiptTotalToPay" step="0.01" min="0"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Total Pagado (Soles)</label><input type="number" id="invoiceReceiptTotalPaid" step="0.01" min="0"></div>
+          <div class="form-group" style="display:flex; align-items:flex-end;">
+            <button type="button" class="btn-secondary" style="width:100%;" onclick="addFeeReceipt()">+ Agregar Recibo</button>
           </div>
-          <div class="form-group">
-            <label>% Completitud (0-100) *</label>
-            <input type="number" id="milestoneProgress" min="0" max="100" required value="0">
-          </div>
         </div>
-        <div class="form-group">
-          <label>Facturas Asociadas</label>
-          <input type="text" id="milestoneInvoices" placeholder="Nº de factura, monto, fecha...">
-        </div>
-        <div class="form-group">
-          <label>Lecciones Aprendidas</label>
-          <textarea id="milestoneLessons" rows="2"></textarea>
-        </div>
+        <div id="feeReceiptsList"></div>
+
         <div class="modal-buttons">
           <button type="submit" class="btn-primary">Guardar</button>
-          <button type="button" class="btn-secondary" onclick="closeModal('milestoneModal')">Cancelar</button>
+          <button type="button" class="btn-secondary" onclick="closeModal('invoiceModal')">Cancelar</button>
         </div>
       </form>
     </div>
@@ -1074,11 +716,17 @@
 
     let projects = [];
     let risks = [];
-    let milestones = [];
+    let invoices = [];       // cada invoice trae su array .fee_receipts anidado (se arma tras cargar)
     let auditLog = [];
     let statuses = [];
     let stages = [];
     let allProfiles = [];
+
+    let sortField = 'name';
+    let sortDirection = 'asc';
+    let riskSortField = 'correlative';
+    let riskSortDirection = 'asc';
+    let currentFeeReceipts = [];
 
     // ==================== PERMISOS POR ROL ====================
     function role() { return currentProfile ? currentProfile.role : null; }
@@ -1087,15 +735,14 @@
     function canDeleteProjects() { return role() === 'admin'; }
     function canManageRisks() { return ['admin', 'lider', 'asistente'].includes(role()); }
     function canDeleteRisks() { return ['admin', 'lider'].includes(role()); }
-    function canManageMilestones() { return ['admin', 'lider', 'asistente'].includes(role()); }
-    function canEditBilling() { return ['admin', 'lider', 'asistente', 'finanzas'].includes(role()); }
     function canManageCatalog() { return isAdmin(); }
     function canManageUsers() { return isAdmin(); }
+    function canAccessFacturacion() { return role() === 'finanzas'; } // exclusivo, ni Admin
 
     function applyRoleUI() {
       document.getElementById('btnNewProject').style.display = canManageProjects() ? 'inline-block' : 'none';
       document.getElementById('btnNewRisk').style.display = canManageRisks() ? 'inline-block' : 'none';
-      document.getElementById('btnNewMilestone').style.display = canManageMilestones() ? 'inline-block' : 'none';
+      document.getElementById('navFacturacion').classList.toggle('hidden', !canAccessFacturacion());
       document.getElementById('navUsuarios').classList.toggle('hidden', !canManageUsers());
       document.getElementById('mantenimientoNoAccess').style.display = canManageCatalog() ? 'none' : 'block';
     }
@@ -1114,11 +761,7 @@
       el.textContent = text;
       el.className = `auth-msg ${type}`;
     }
-
-    function hideAuthMsg() {
-      const el = document.getElementById('authMsg');
-      el.className = 'auth-msg';
-    }
+    function hideAuthMsg() { document.getElementById('authMsg').className = 'auth-msg'; }
 
     async function handleLogin(e) {
       e.preventDefault();
@@ -1126,9 +769,7 @@
       const email = document.getElementById('loginEmail').value;
       const password = document.getElementById('loginPassword').value;
       const { error } = await sb.auth.signInWithPassword({ email, password });
-      if (error) {
-        showAuthMsg('No se pudo iniciar sesión: ' + error.message, 'error');
-      }
+      if (error) showAuthMsg('No se pudo iniciar sesión: ' + error.message, 'error');
     }
 
     async function handleSignup(e) {
@@ -1137,35 +778,23 @@
       const full_name = document.getElementById('signupName').value;
       const email = document.getElementById('signupEmail').value;
       const password = document.getElementById('signupPassword').value;
-      const { error } = await sb.auth.signUp({
-        email, password,
-        options: { data: { full_name } }
-      });
-      if (error) {
-        showAuthMsg('No se pudo crear la cuenta: ' + error.message, 'error');
-        return;
-      }
+      const { error } = await sb.auth.signUp({ email, password, options: { data: { full_name } } });
+      if (error) { showAuthMsg('No se pudo crear la cuenta: ' + error.message, 'error'); return; }
       showAuthMsg('Cuenta creada. Ya puedes iniciar sesión; un Admin debe asignarte un rol antes de que veas el sistema.', 'success');
       switchAuthTab('login');
     }
 
-    async function handleLogout() {
-      await sb.auth.signOut();
-    }
+    async function handleLogout() { await sb.auth.signOut(); }
 
     async function loadCurrentProfile() {
       const { data, error } = await sb.from('profiles').select('*').eq('id', currentUser.id).single();
-      if (error) {
-        console.error(error);
-        return null;
-      }
+      if (error) { console.error(error); return null; }
       return data;
     }
 
     async function onAuthReady(session) {
       if (!session) {
-        currentUser = null;
-        currentProfile = null;
+        currentUser = null; currentProfile = null;
         document.getElementById('authScreen').style.display = 'flex';
         document.getElementById('pendingScreen').style.display = 'none';
         document.getElementById('appRoot').style.display = 'none';
@@ -1204,9 +833,11 @@
     // ==================== CARGA DE DATOS ====================
     async function loadAll() {
       await Promise.all([
-        loadProjects(), loadRisks(), loadMilestones(), loadAudit(), loadStatuses(), loadStages(),
+        loadProjects(), loadRisks(), loadStatuses(), loadStages(),
+        canAccessFacturacion() ? loadInvoices() : Promise.resolve(),
         canManageUsers() ? loadProfiles() : Promise.resolve()
       ]);
+      await loadAudit();
     }
 
     async function loadProjects() {
@@ -1221,10 +852,10 @@
       risks = data || [];
     }
 
-    async function loadMilestones() {
-      const { data, error } = await sb.from('milestones').select('*').order('planned_date', { ascending: true });
+    async function loadInvoices() {
+      const { data, error } = await sb.from('invoices').select('*, fee_receipts(*)').order('created_at', { ascending: false });
       if (error) return console.error(error);
-      milestones = data || [];
+      invoices = data || [];
     }
 
     async function loadAudit() {
@@ -1252,14 +883,26 @@
     }
 
     async function logAudit({ project_name = '-', type, from_status = '-', to_status = '-', comment = '' }) {
-      await sb.from('audit_log').insert({
-        user_email: currentProfile.email,
-        project_name, type, from_status, to_status, comment
-      });
+      await sb.from('audit_log').insert({ user_email: currentProfile.email, project_name, type, from_status, to_status, comment });
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '-';
+      const parts = dateStr.split('-');
+      if (parts.length !== 3) return dateStr;
+      const [y, m, d] = parts;
+      return `${d}/${m}/${y}`;
+    }
+
+    function cssClass(text) {
+      return (text || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, '-');
     }
 
     // ==================== NAVEGACIÓN ====================
     function switchTab(tabName) {
+      if (tabName === 'facturacion' && !canAccessFacturacion()) return;
+      if (tabName === 'usuarios' && !canManageUsers()) return;
+
       document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
       document.getElementById(`${tabName}-tab`).classList.add('active');
       document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
@@ -1267,7 +910,7 @@
 
       if (tabName === 'proyectos') renderProjects();
       if (tabName === 'riesgos') renderRisks();
-      if (tabName === 'bitacora') renderMilestones();
+      if (tabName === 'facturacion') renderInvoices();
       if (tabName === 'mantenimiento') renderMaintenance();
       if (tabName === 'auditoria') renderAudit();
       if (tabName === 'dashboard') renderDashboard();
@@ -1286,20 +929,33 @@
     function openModal(modalId) { document.getElementById(modalId).classList.add('active'); }
     function closeModal(modalId) { document.getElementById(modalId).classList.remove('active'); }
 
+    function updateStatusColor(selectEl) {
+      selectEl.style.color = selectEl.value === 'Pausado' ? 'var(--danger)' : '';
+    }
+
     // ==================== PROYECTOS ====================
     function openModalNewProject() {
       if (!canManageProjects()) return;
       document.getElementById('projectModalTitle').textContent = 'Nuevo Proyecto';
       document.getElementById('projectForm').reset();
+      document.getElementById('projectFormError').style.display = 'none';
       document.getElementById('projectForm').onsubmit = saveNewProject;
+      updateStatusColor(document.getElementById('projectStatus'));
       openModal('projectModal');
     }
 
     async function saveNewProject(e) {
       e.preventDefault();
+      const form = document.getElementById('projectForm');
+      const errorDiv = document.getElementById('projectFormError');
+      if (!form.checkValidity()) { errorDiv.style.display = 'block'; return; }
+      errorDiv.style.display = 'none';
+
       const project = {
         name: document.getElementById('projectName').value,
         client: document.getElementById('projectClient').value,
+        ruc: document.getElementById('projectRuc').value,
+        contact: document.getElementById('projectContact').value,
         service: document.getElementById('projectService').value,
         status: document.getElementById('projectStatus').value,
         start_date: document.getElementById('projectStartDate').value,
@@ -1307,6 +963,7 @@
         expected_cycle: parseInt(document.getElementById('projectExpectedCycle').value),
         stage: document.getElementById('projectStage').value,
         drive_link: document.getElementById('projectDriveLink').value,
+        advance_payment: document.getElementById('projectAdvancePayment').checked,
         created_by: currentUser.id
       };
       const { error } = await sb.from('projects').insert(project);
@@ -1316,6 +973,12 @@
       await loadProjects();
       renderProjects();
       closeModal('projectModal');
+    }
+
+    function sortProjects(field) {
+      if (sortField === field) sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+      else { sortField = field; sortDirection = 'asc'; }
+      renderProjects();
     }
 
     function renderProjects() {
@@ -1333,40 +996,55 @@
       document.getElementById('completedCount').textContent = completedCount;
 
       if (projects.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="13" class="empty-state">No hay proyectos todavía.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="14" class="empty-state">No hay proyectos todavía.</td></tr>`;
         return;
       }
 
-      projects.forEach(project => {
+      const sorted = [...projects].sort((a, b) => {
+        let valA = a[sortField], valB = b[sortField];
+        if (sortField === 'start_date') { valA = new Date(valA || 0); valB = new Date(valB || 0); }
+        else { valA = (valA || '').toString().toLowerCase(); valB = (valB || '').toString().toLowerCase(); }
+        if (valA < valB) return sortDirection === 'asc' ? -1 : 1;
+        if (valA > valB) return sortDirection === 'asc' ? 1 : -1;
+        return 0;
+      });
+
+      ['name', 'status', 'start_date'].forEach(f => {
+        const arrow = document.getElementById(`sortArrow-${f}`);
+        if (arrow) arrow.textContent = sortField === f ? (sortDirection === 'asc' ? '▲' : '▼') : '';
+      });
+
+      sorted.forEach(project => {
         const projectRisks = risks.filter(r => r.project_id === project.id && r.status !== 'Cerrado');
+        const riskTypes = [...new Set(projectRisks.map(r => r.risk_type).filter(Boolean))];
         const startDate = new Date(project.start_date);
         const endDate = project.end_date ? new Date(project.end_date) : new Date();
         const realCycle = Math.floor((endDate - startDate) / (1000 * 60 * 60 * 24));
-        const variance = realCycle - project.expected_cycle;
+        const statusClass = cssClass(project.status);
 
         const actions = canManageProjects() ? `
               <button class="btn-secondary btn-small" onclick="editProject(${project.id})">Editar</button>
               ${canDeleteProjects() ? `<button class="btn-danger btn-small" onclick="deleteProject(${project.id})">Eliminar</button>` : ''}
         ` : '<span style="color:var(--text-muted);font-size:12px;">Solo lectura</span>';
 
-        const row = `
+        tbody.innerHTML += `
           <tr>
             <td><strong>${project.name}</strong></td>
+            <td><span class="badge ${statusClass}">${project.status}</span></td>
+            <td><span class="badge en-progreso">${project.stage}</span></td>
+            <td><strong class="${projectRisks.length > 1 ? 'text-danger' : ''}">${projectRisks.length}</strong></td>
+            <td>${riskTypes.length ? riskTypes.join(', ') : '-'}</td>
             <td>${project.client}</td>
             <td>${project.service}</td>
-            <td>${project.start_date}</td>
-            <td>${project.end_date || '-'}</td>
-            <td><span class="badge ${project.status.toLowerCase()}">${project.status}</span></td>
-            <td><span class="badge en-progreso">${project.stage}</span></td>
-            <td><strong>${projectRisks.length}</strong></td>
+            <td>${formatDate(project.start_date)}</td>
+            <td>${formatDate(project.end_date)}</td>
             <td>${realCycle}</td>
             <td>${project.expected_cycle}</td>
-            <td><span class="${variance > 0 ? 'variance-positive' : 'variance-negative'}">${variance > 0 ? '+' : ''}${variance}</span></td>
+            <td><input type="checkbox" ${project.advance_payment ? 'checked' : ''} disabled></td>
             <td>${project.drive_link ? `<a href="${project.drive_link}" target="_blank" class="link-cell">📁 Ver</a>` : '-'}</td>
             <td><div class="action-buttons">${actions}</div></td>
           </tr>
         `;
-        tbody.innerHTML += row;
       });
     }
 
@@ -1378,35 +1056,45 @@
       document.getElementById('projectModalTitle').textContent = 'Editar Proyecto';
       document.getElementById('projectName').value = project.name;
       document.getElementById('projectClient').value = project.client;
+      document.getElementById('projectRuc').value = project.ruc || '';
+      document.getElementById('projectContact').value = project.contact || '';
       document.getElementById('projectService').value = project.service;
       document.getElementById('projectStatus').value = project.status;
+      updateStatusColor(document.getElementById('projectStatus'));
       document.getElementById('projectStartDate').value = project.start_date;
       document.getElementById('projectEndDate').value = project.end_date || '';
       document.getElementById('projectExpectedCycle').value = project.expected_cycle;
       document.getElementById('projectStage').value = project.stage;
       document.getElementById('projectDriveLink').value = project.drive_link || '';
+      document.getElementById('projectAdvancePayment').checked = !!project.advance_payment;
+      document.getElementById('projectFormError').style.display = 'none';
 
       document.getElementById('projectForm').onsubmit = async (e) => {
         e.preventDefault();
+        const form = document.getElementById('projectForm');
+        const errorDiv = document.getElementById('projectFormError');
+        if (!form.checkValidity()) { errorDiv.style.display = 'block'; return; }
+        errorDiv.style.display = 'none';
+
         const previousStatus = project.status;
         const updated = {
           name: document.getElementById('projectName').value,
           client: document.getElementById('projectClient').value,
+          ruc: document.getElementById('projectRuc').value,
+          contact: document.getElementById('projectContact').value,
           service: document.getElementById('projectService').value,
           status: document.getElementById('projectStatus').value,
           start_date: document.getElementById('projectStartDate').value,
           end_date: document.getElementById('projectEndDate').value || null,
           expected_cycle: parseInt(document.getElementById('projectExpectedCycle').value),
           stage: document.getElementById('projectStage').value,
-          drive_link: document.getElementById('projectDriveLink').value
+          drive_link: document.getElementById('projectDriveLink').value,
+          advance_payment: document.getElementById('projectAdvancePayment').checked
         };
         const { error } = await sb.from('projects').update(updated).eq('id', projectId);
         if (error) return alert('Error al actualizar: ' + error.message);
 
-        await logAudit({
-          project_name: updated.name, type: 'Cambio de Estado',
-          from_status: previousStatus, to_status: updated.status, comment: 'Proyecto actualizado'
-        });
+        await logAudit({ project_name: updated.name, type: 'Cambio de Estado', from_status: previousStatus, to_status: updated.status, comment: 'Proyecto actualizado' });
         await loadProjects();
         renderProjects();
         closeModal('projectModal');
@@ -1417,7 +1105,7 @@
 
     async function deleteProject(projectId) {
       if (!canDeleteProjects()) return;
-      if (!confirm('¿Eliminar este proyecto? También se eliminarán sus riesgos e hitos asociados.')) return;
+      if (!confirm('¿Eliminar este proyecto? También se eliminarán sus riesgos asociados.')) return;
       const { error } = await sb.from('projects').delete().eq('id', projectId);
       if (error) return alert('Error al eliminar: ' + error.message);
       await loadAll();
@@ -1427,43 +1115,40 @@
     // ==================== RIESGOS ====================
     function openModalNewRisk() {
       if (!canManageRisks()) return;
+      document.getElementById('riskModalTitle').textContent = 'Nuevo Riesgo';
       document.getElementById('riskForm').reset();
       document.getElementById('riskForm').onsubmit = saveNewRisk;
       const projectSelect = document.getElementById('riskProject');
-      projectSelect.innerHTML = '<option value="">Seleccionar</option>' +
-        projects.map(p => `<option value="${p.id}">${p.name}</option>`).join('');
+      projectSelect.innerHTML = '<option value="">Seleccionar</option>' + projects.map(p => `<option value="${p.id}">${p.name}</option>`).join('');
       openModal('riskModal');
-    }
-
-    function computeRiskScore(impact, probability) {
-      const impactValues = { 'Bajo': 1, 'Medio': 2, 'Alto': 3, 'Crítico': 5 };
-      const probValues = { 'Baja': 1, 'Media': 3, 'Alta': 5 };
-      return (impactValues[impact] || 0) * (probValues[probability] || 0);
     }
 
     async function saveNewRisk(e) {
       e.preventDefault();
       const projectId = parseInt(document.getElementById('riskProject').value);
-      const impact = document.getElementById('riskImpact').value;
-      const probability = document.getElementById('riskProbability').value;
-
       const risk = {
         project_id: projectId,
         correlative: risks.filter(r => r.project_id === projectId).length + 1,
         detail: document.getElementById('riskDetail').value,
-        impact, probability,
-        score: computeRiskScore(impact, probability),
-        status: document.getElementById('riskStatus').value,
-        is_closed: document.getElementById('riskClosed').checked,
+        risk_type: document.getElementById('riskType').value,
         mitigation: document.getElementById('riskMitigation').value,
+        mitigation_responsible: document.getElementById('riskMitigationResponsible').value,
+        mitigation_due_date: document.getElementById('riskMitigationDueDate').value || null,
+        status: document.getElementById('riskStatus').value,
         created_by: currentUser.id
       };
       const { error } = await sb.from('risks').insert(risk);
       if (error) return alert('Error al guardar: ' + error.message);
-
       await loadRisks();
       renderRisks();
+      renderProjects();
       closeModal('riskModal');
+    }
+
+    function sortRisks(field) {
+      if (riskSortField === field) riskSortDirection = riskSortDirection === 'asc' ? 'desc' : 'asc';
+      else { riskSortField = field; riskSortDirection = 'asc'; }
+      renderRisks();
     }
 
     function renderRisks() {
@@ -1471,41 +1156,62 @@
       tbody.innerHTML = '';
 
       const openRisks = risks.filter(r => r.status === 'Abierto');
-      const criticalRisks = risks.filter(r => r.score >= 15);
-      const avgScore = risks.length > 0 ? (risks.reduce((sum, r) => sum + r.score, 0) / risks.length).toFixed(1) : 0;
-
+      const trackingRisks = risks.filter(r => r.status === 'En seguimiento');
       document.getElementById('openRisksCount').textContent = openRisks.length;
-      document.getElementById('criticalRisksCount').textContent = criticalRisks.length;
-      document.getElementById('avgRiskScore').textContent = avgScore;
+      document.getElementById('trackingRisksCount').textContent = trackingRisks.length;
+      document.getElementById('totalRisksCount').textContent = risks.length;
 
       if (risks.length === 0) {
         tbody.innerHTML = `<tr><td colspan="10" class="empty-state">No hay riesgos registrados.</td></tr>`;
         return;
       }
 
-      risks.forEach(risk => {
+      const todayStr = new Date().toISOString().split('T')[0];
+
+      const sorted = [...risks].sort((a, b) => {
+        let valA, valB;
+        if (riskSortField === 'projectName') {
+          const pa = projects.find(p => p.id === a.project_id);
+          const pb = projects.find(p => p.id === b.project_id);
+          valA = (pa ? pa.name : '').toLowerCase(); valB = (pb ? pb.name : '').toLowerCase();
+        } else if (riskSortField === 'status') {
+          valA = a.status.toLowerCase(); valB = b.status.toLowerCase();
+        } else {
+          valA = a.correlative; valB = b.correlative;
+        }
+        if (valA < valB) return riskSortDirection === 'asc' ? -1 : 1;
+        if (valA > valB) return riskSortDirection === 'asc' ? 1 : -1;
+        return 0;
+      });
+
+      ['correlative', 'projectName', 'status'].forEach(f => {
+        const arrow = document.getElementById(`riskSortArrow-${f}`);
+        if (arrow) arrow.textContent = riskSortField === f ? (riskSortDirection === 'asc' ? '▲' : '▼') : '';
+      });
+
+      sorted.forEach(risk => {
         const project = projects.find(p => p.id === risk.project_id);
+        const isOverdue = risk.mitigation_due_date && risk.mitigation_due_date <= todayStr && risk.status !== 'Cerrado';
         const actions = canManageRisks() ? `
               <button class="btn-secondary btn-small" onclick="editRisk(${risk.id})">Editar</button>
               ${canDeleteRisks() ? `<button class="btn-danger btn-small" onclick="deleteRisk(${risk.id})">Eliminar</button>` : ''}
         ` : '<span style="color:var(--text-muted);font-size:12px;">Solo lectura</span>';
 
-        const statusClass = risk.status === 'Abierto' ? 'alto' : (risk.status === 'Cerrado' ? 'completado' : 'medio');
-        const row = `
+        const statusClass = cssClass(risk.status);
+        tbody.innerHTML += `
           <tr>
-            <td>${project ? project.name : 'N/A'}</td>
             <td>#${risk.correlative}</td>
-            <td>${risk.registration_date}</td>
+            <td>${project ? project.name : 'N/A'}</td>
+            <td>${formatDate(risk.registration_date)}</td>
             <td>${risk.detail}</td>
-            <td><span class="badge ${risk.impact.toLowerCase()}">${risk.impact}</span></td>
-            <td>${risk.probability}</td>
-            <td><strong>${risk.score}</strong></td>
+            <td><span class="badge medio">${risk.risk_type}</span></td>
+            <td>${risk.mitigation || '-'}</td>
+            <td>${risk.mitigation_responsible || '-'}</td>
+            <td class="${isOverdue ? 'text-danger' : ''}">${formatDate(risk.mitigation_due_date)}</td>
             <td><span class="badge ${statusClass}">${risk.status}</span></td>
-            <td><input type="checkbox" ${risk.is_closed ? 'checked' : ''} disabled></td>
             <td><div class="action-buttons">${actions}</div></td>
           </tr>
         `;
-        tbody.innerHTML += row;
       });
     }
 
@@ -1514,32 +1220,32 @@
       const risk = risks.find(r => r.id === riskId);
       if (!risk) return;
 
+      document.getElementById('riskModalTitle').textContent = 'Editar Riesgo';
       const projectSelect = document.getElementById('riskProject');
       projectSelect.innerHTML = projects.map(p => `<option value="${p.id}">${p.name}</option>`).join('');
       projectSelect.value = risk.project_id;
       document.getElementById('riskDetail').value = risk.detail;
-      document.getElementById('riskImpact').value = risk.impact;
-      document.getElementById('riskProbability').value = risk.probability;
-      document.getElementById('riskStatus').value = risk.status;
+      document.getElementById('riskType').value = risk.risk_type;
       document.getElementById('riskMitigation').value = risk.mitigation || '';
-      document.getElementById('riskClosed').checked = risk.is_closed;
+      document.getElementById('riskMitigationResponsible').value = risk.mitigation_responsible || '';
+      document.getElementById('riskMitigationDueDate').value = risk.mitigation_due_date || '';
+      document.getElementById('riskStatus').value = risk.status;
 
       document.getElementById('riskForm').onsubmit = async (e) => {
         e.preventDefault();
-        const impact = document.getElementById('riskImpact').value;
-        const probability = document.getElementById('riskProbability').value;
         const updated = {
           detail: document.getElementById('riskDetail').value,
-          impact, probability,
-          score: computeRiskScore(impact, probability),
-          status: document.getElementById('riskStatus').value,
+          risk_type: document.getElementById('riskType').value,
           mitigation: document.getElementById('riskMitigation').value,
-          is_closed: document.getElementById('riskClosed').checked
+          mitigation_responsible: document.getElementById('riskMitigationResponsible').value,
+          mitigation_due_date: document.getElementById('riskMitigationDueDate').value || null,
+          status: document.getElementById('riskStatus').value
         };
         const { error } = await sb.from('risks').update(updated).eq('id', riskId);
         if (error) return alert('Error al actualizar: ' + error.message);
         await loadRisks();
         renderRisks();
+        renderProjects();
         closeModal('riskModal');
       };
 
@@ -1553,158 +1259,229 @@
       if (error) return alert('Error al eliminar: ' + error.message);
       await loadRisks();
       renderRisks();
+      renderProjects();
     }
 
-    // ==================== HITOS / BITÁCORA ====================
-    function openModalNewMilestone() {
-      if (!canManageMilestones()) return;
-      document.getElementById('milestoneModalTitle').textContent = 'Nuevo Hito';
-      document.getElementById('milestoneForm').reset();
-      document.getElementById('milestoneForm').onsubmit = saveNewMilestone;
-      setMilestoneFieldsMode('full');
-      const projectSelect = document.getElementById('milestoneProject');
+    // ==================== FACTURACIÓN (exclusivo Finanzas) ====================
+    function openModalNewInvoice() {
+      if (!canAccessFacturacion()) return;
+      document.getElementById('invoiceModalTitle').textContent = 'Nuevo Registro de Facturación';
+      document.getElementById('invoiceForm').reset();
+      document.getElementById('invoiceRuc').value = '';
+      const projectSelect = document.getElementById('invoiceProject');
       projectSelect.innerHTML = '<option value="">Seleccionar</option>' +
-        projects.map(p => `<option value="${p.id}">${p.name}</option>`).join('');
-      openModal('milestoneModal');
+        projects.filter(p => p.status !== 'Finalizado').map(p => `<option value="${p.id}">${p.name}</option>`).join('');
+      currentFeeReceipts = [];
+      renderFeeReceiptsList();
+      document.getElementById('invoiceForm').onsubmit = saveNewInvoice;
+      openModal('invoiceModal');
     }
 
-    // Finanzas solo puede tocar Facturas Asociadas / Lecciones aprendidas.
-    function setMilestoneFieldsMode(mode) {
-      const restrictedIds = ['milestoneProject', 'milestoneName', 'milestoneStage', 'milestoneResponsible', 'milestoneDate', 'milestoneProgress'];
-      restrictedIds.forEach(id => {
-        document.getElementById(id).disabled = (mode === 'billing-only');
-      });
+    function fillInvoiceRuc() {
+      const projectId = parseInt(document.getElementById('invoiceProject').value);
+      const project = projects.find(p => p.id === projectId);
+      document.getElementById('invoiceRuc').value = project ? (project.ruc || '') : '';
     }
 
-    async function saveNewMilestone(e) {
-      e.preventDefault();
-      const milestone = {
-        project_id: parseInt(document.getElementById('milestoneProject').value),
-        name: document.getElementById('milestoneName').value,
-        stage: document.getElementById('milestoneStage').value,
-        responsible: document.getElementById('milestoneResponsible').value,
-        planned_date: document.getElementById('milestoneDate').value,
-        status: 'Programado',
-        progress: parseInt(document.getElementById('milestoneProgress').value),
-        invoices: document.getElementById('milestoneInvoices').value,
-        lessons_learned: document.getElementById('milestoneLessons').value,
-        created_by: currentUser.id
-      };
-      const { error } = await sb.from('milestones').insert(milestone);
-      if (error) return alert('Error al guardar: ' + error.message);
-      await loadMilestones();
-      renderMilestones();
-      closeModal('milestoneModal');
-    }
+    function addFeeReceipt() {
+      const provider = document.getElementById('invoiceReceiptProvider').value.trim();
+      const registration_number = document.getElementById('invoiceReceiptRegistrationNumber').value.trim();
+      const due_date = document.getElementById('invoiceReceiptDueDate').value || null;
+      const payment_date = document.getElementById('invoiceReceiptPaymentDate').value || null;
+      const bank = document.getElementById('invoiceReceiptBank').value.trim();
+      const total_to_pay = parseFloat(document.getElementById('invoiceReceiptTotalToPay').value);
+      const total_paid = parseFloat(document.getElementById('invoiceReceiptTotalPaid').value) || 0;
 
-    function renderMilestones() {
-      const tbody = document.getElementById('milestonesBody');
-      tbody.innerHTML = '';
-
-      if (milestones.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="9" class="empty-state">No hay hitos registrados.</td></tr>`;
+      if (!provider || !registration_number || isNaN(total_to_pay)) {
+        alert('Complete al menos Nombre Proveedor, Número de Registro y Total a Pagar para agregar el recibo.');
         return;
       }
 
-      milestones.forEach(milestone => {
-        const project = projects.find(p => p.id === milestone.project_id);
-        let actions = '<span style="color:var(--text-muted);font-size:12px;">Solo lectura</span>';
-        if (canManageMilestones()) {
-          actions = `<button class="btn-secondary btn-small" onclick="editMilestone(${milestone.id}, 'full')">Editar</button>`;
-          if (['admin', 'lider'].includes(role())) {
-            actions += ` <button class="btn-danger btn-small" onclick="deleteMilestone(${milestone.id})">Eliminar</button>`;
-          }
-        } else if (role() === 'finanzas') {
-          actions = `<button class="btn-secondary btn-small" onclick="editMilestone(${milestone.id}, 'billing-only')">Editar facturación</button>`;
-        }
+      currentFeeReceipts.push({ provider, registration_number, due_date, payment_date, bank, total_to_pay, total_paid });
 
-        const statusClass = milestone.status === 'Completado' ? 'completado' : 'en-progreso';
-        const row = `
+      ['invoiceReceiptProvider', 'invoiceReceiptRegistrationNumber', 'invoiceReceiptDueDate', 'invoiceReceiptPaymentDate', 'invoiceReceiptBank', 'invoiceReceiptTotalToPay', 'invoiceReceiptTotalPaid']
+        .forEach(id => document.getElementById(id).value = '');
+
+      renderFeeReceiptsList();
+    }
+
+    function removeFeeReceipt(index) {
+      currentFeeReceipts.splice(index, 1);
+      renderFeeReceiptsList();
+    }
+
+    function renderFeeReceiptsList() {
+      const container = document.getElementById('feeReceiptsList');
+      if (!currentFeeReceipts.length) {
+        container.innerHTML = '<p class="fee-receipts-empty">Aún no se han agregado recibos por honorarios.</p>';
+        return;
+      }
+      let html = `<table class="fee-receipts-table"><thead><tr>
+        <th>Proveedor</th><th>N° Registro</th><th>Vencimiento</th><th>Fecha Pago</th><th>Banco</th><th>Total a Pagar</th><th>Total Pagado</th><th></th>
+      </tr></thead><tbody>`;
+      currentFeeReceipts.forEach((r, i) => {
+        html += `<tr>
+          <td>${r.provider}</td><td>${r.registration_number}</td><td>${formatDate(r.due_date)}</td><td>${formatDate(r.payment_date)}</td>
+          <td>${r.bank || '-'}</td><td>${r.total_to_pay.toFixed(2)}</td><td>${r.total_paid.toFixed(2)}</td>
+          <td><button type="button" class="btn-danger btn-small" onclick="removeFeeReceipt(${i})">Quitar</button></td>
+        </tr>`;
+      });
+      html += '</tbody></table>';
+      container.innerHTML = html;
+    }
+
+    function readInvoiceForm() {
+      return {
+        project_id: parseInt(document.getElementById('invoiceProject').value),
+        ruc: document.getElementById('invoiceRuc').value,
+        series: document.getElementById('invoiceSeries').value,
+        number: document.getElementById('invoiceNumber').value,
+        issue_date: document.getElementById('invoiceIssueDate').value,
+        due_date: document.getElementById('invoiceDueDate').value,
+        base: parseFloat(document.getElementById('invoiceBase').value),
+        igv: parseFloat(document.getElementById('invoiceIgv').value),
+        total: parseFloat(document.getElementById('invoiceTotal').value),
+        detraction: parseFloat(document.getElementById('invoiceDetraction').value) || 0,
+        voucher_link: document.getElementById('invoiceVoucherLink').value,
+        status: document.getElementById('invoiceStatus').value,
+        payment_date: document.getElementById('invoicePaymentDate').value || null
+      };
+    }
+
+    async function saveNewInvoice(e) {
+      e.preventDefault();
+      const invoice = { ...readInvoiceForm(), created_by: currentUser.id };
+      const { data, error } = await sb.from('invoices').insert(invoice).select().single();
+      if (error) return alert('Error al guardar: ' + error.message);
+
+      if (currentFeeReceipts.length) {
+        const rows = currentFeeReceipts.map(r => ({ ...r, invoice_id: data.id }));
+        const { error: feeError } = await sb.from('fee_receipts').insert(rows);
+        if (feeError) alert('La factura se guardó, pero hubo un error con los recibos por honorarios: ' + feeError.message);
+      }
+
+      await loadInvoices();
+      renderInvoices();
+      closeModal('invoiceModal');
+    }
+
+    function renderInvoices() {
+      const tbody = document.getElementById('invoicesBody');
+      tbody.innerHTML = '';
+
+      const pending = invoices.filter(i => i.status === 'Pendiente por pagar');
+      const paid = invoices.filter(i => i.status === 'Pagado');
+      const totalInvoiced = invoices.reduce((sum, i) => sum + (Number(i.total) || 0), 0);
+
+      document.getElementById('pendingInvoicesCount').textContent = pending.length;
+      document.getElementById('paidInvoicesCount').textContent = paid.length;
+      document.getElementById('totalInvoiced').textContent = 'S/ ' + totalInvoiced.toFixed(2);
+
+      if (invoices.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="15" class="empty-state">No hay registros de facturación todavía.</td></tr>`;
+        return;
+      }
+
+      const sorted = [...invoices].sort((a, b) => (a.number || '').localeCompare(b.number || '', undefined, { numeric: true }));
+
+      sorted.forEach(invoice => {
+        const project = projects.find(p => p.id === invoice.project_id);
+        const receipts = invoice.fee_receipts || [];
+        const receiptsLabel = receipts.length ? `${receipts.length} recibo${receipts.length > 1 ? 's' : ''}: ${receipts.map(r => r.provider).join(', ')}` : '-';
+        const statusClass = cssClass(invoice.status);
+
+        tbody.innerHTML += `
           <tr>
             <td>${project ? project.name : 'N/A'}</td>
-            <td>${milestone.name}</td>
-            <td>${milestone.stage}</td>
-            <td>${milestone.planned_date}</td>
-            <td><span class="badge ${statusClass}">${milestone.status}</span></td>
-            <td>${milestone.progress}%</td>
-            <td>${milestone.responsible}</td>
-            <td>${milestone.invoices || '-'}</td>
-            <td><div class="action-buttons">${actions}</div></td>
+            <td>${invoice.ruc || '-'}</td>
+            <td>${invoice.series}</td>
+            <td>${invoice.number}</td>
+            <td>${formatDate(invoice.issue_date)}</td>
+            <td>${formatDate(invoice.due_date)}</td>
+            <td>${Number(invoice.base).toFixed(2)}</td>
+            <td>${Number(invoice.igv).toFixed(2)}</td>
+            <td>${Number(invoice.total).toFixed(2)}</td>
+            <td>${Number(invoice.detraction).toFixed(2)}</td>
+            <td>${invoice.voucher_link ? `<a href="${invoice.voucher_link}" target="_blank" class="link-cell">Ver</a>` : '-'}</td>
+            <td><span class="badge ${statusClass}">${invoice.status}</span></td>
+            <td>${formatDate(invoice.payment_date)}</td>
+            <td>${receiptsLabel}</td>
+            <td><div class="action-buttons">
+              <button class="btn-secondary btn-small" onclick="editInvoice(${invoice.id})">Editar</button>
+              <button class="btn-danger btn-small" onclick="deleteInvoice(${invoice.id})">Eliminar</button>
+            </div></td>
           </tr>
         `;
-        tbody.innerHTML += row;
       });
     }
 
-    function editMilestone(milestoneId, mode) {
-      const milestone = milestones.find(m => m.id === milestoneId);
-      if (!milestone) return;
-      if (mode === 'billing-only' && !canEditBilling()) return;
-      if (mode === 'full' && !canManageMilestones()) return;
+    function editInvoice(invoiceId) {
+      if (!canAccessFacturacion()) return;
+      const invoice = invoices.find(i => i.id === invoiceId);
+      if (!invoice) return;
 
-      document.getElementById('milestoneModalTitle').textContent = mode === 'billing-only' ? 'Editar Facturación' : 'Editar Hito';
-      const projectSelect = document.getElementById('milestoneProject');
-      projectSelect.innerHTML = projects.map(p => `<option value="${p.id}">${p.name}</option>`).join('');
-      projectSelect.value = milestone.project_id;
-      document.getElementById('milestoneName').value = milestone.name;
-      document.getElementById('milestoneStage').value = milestone.stage;
-      document.getElementById('milestoneResponsible').value = milestone.responsible;
-      document.getElementById('milestoneDate').value = milestone.planned_date;
-      document.getElementById('milestoneProgress').value = milestone.progress;
-      document.getElementById('milestoneInvoices').value = milestone.invoices || '';
-      document.getElementById('milestoneLessons').value = milestone.lessons_learned || '';
+      document.getElementById('invoiceModalTitle').textContent = 'Editar Registro de Facturación';
+      const projectSelect = document.getElementById('invoiceProject');
+      projectSelect.innerHTML = projects.filter(p => p.status !== 'Finalizado' || p.id === invoice.project_id)
+        .map(p => `<option value="${p.id}">${p.name}</option>`).join('');
+      projectSelect.value = invoice.project_id;
+      document.getElementById('invoiceRuc').value = invoice.ruc || '';
+      document.getElementById('invoiceSeries').value = invoice.series;
+      document.getElementById('invoiceNumber').value = invoice.number;
+      document.getElementById('invoiceIssueDate').value = invoice.issue_date;
+      document.getElementById('invoiceDueDate').value = invoice.due_date;
+      document.getElementById('invoiceBase').value = invoice.base;
+      document.getElementById('invoiceIgv').value = invoice.igv;
+      document.getElementById('invoiceTotal').value = invoice.total;
+      document.getElementById('invoiceDetraction').value = invoice.detraction;
+      document.getElementById('invoiceVoucherLink').value = invoice.voucher_link || '';
+      document.getElementById('invoiceStatus').value = invoice.status;
+      document.getElementById('invoicePaymentDate').value = invoice.payment_date || '';
 
-      setMilestoneFieldsMode(mode);
+      currentFeeReceipts = (invoice.fee_receipts || []).map(r => ({ ...r }));
+      renderFeeReceiptsList();
 
-      document.getElementById('milestoneForm').onsubmit = async (e) => {
+      document.getElementById('invoiceForm').onsubmit = async (e) => {
         e.preventDefault();
-        const updated = mode === 'billing-only'
-          ? {
-              invoices: document.getElementById('milestoneInvoices').value,
-              lessons_learned: document.getElementById('milestoneLessons').value
-            }
-          : {
-              name: document.getElementById('milestoneName').value,
-              stage: document.getElementById('milestoneStage').value,
-              responsible: document.getElementById('milestoneResponsible').value,
-              planned_date: document.getElementById('milestoneDate').value,
-              progress: parseInt(document.getElementById('milestoneProgress').value),
-              invoices: document.getElementById('milestoneInvoices').value,
-              lessons_learned: document.getElementById('milestoneLessons').value
-            };
-
-        const { error } = await sb.from('milestones').update(updated).eq('id', milestoneId);
+        const updated = readInvoiceForm();
+        const { error } = await sb.from('invoices').update(updated).eq('id', invoiceId);
         if (error) return alert('Error al actualizar: ' + error.message);
-        await loadMilestones();
-        renderMilestones();
-        closeModal('milestoneModal');
-        setMilestoneFieldsMode('full');
+
+        // Reemplaza los recibos por honorarios: borra los existentes y vuelve a insertar los actuales.
+        await sb.from('fee_receipts').delete().eq('invoice_id', invoiceId);
+        const newReceipts = currentFeeReceipts.filter(r => r.provider);
+        if (newReceipts.length) {
+          const rows = newReceipts.map(r => {
+            const { id, ...rest } = r;
+            return { ...rest, invoice_id: invoiceId };
+          });
+          await sb.from('fee_receipts').insert(rows);
+        }
+
+        await loadInvoices();
+        renderInvoices();
+        closeModal('invoiceModal');
       };
 
-      openModal('milestoneModal');
+      openModal('invoiceModal');
     }
 
-    async function deleteMilestone(milestoneId) {
-      if (!['admin', 'lider'].includes(role())) return;
-      if (!confirm('¿Eliminar este hito?')) return;
-      const { error } = await sb.from('milestones').delete().eq('id', milestoneId);
+    async function deleteInvoice(invoiceId) {
+      if (!canAccessFacturacion()) return;
+      if (!confirm('¿Eliminar este registro de facturación?')) return;
+      const { error } = await sb.from('invoices').delete().eq('id', invoiceId);
       if (error) return alert('Error al eliminar: ' + error.message);
-      await loadMilestones();
-      renderMilestones();
+      await loadInvoices();
+      renderInvoices();
     }
 
     // ==================== MANTENIMIENTO (catálogos, solo lectura salvo Admin) ====================
-    function renderMaintenance() {
-      renderStatusTable();
-      renderStagesTable();
-    }
+    function renderMaintenance() { renderStatusTable(); renderStagesTable(); }
 
     function renderStatusTable() {
-      const tbody = document.getElementById('statusBody');
-      tbody.innerHTML = statuses.map(s => `
+      document.getElementById('statusBody').innerHTML = statuses.map(s => `
         <tr>
-          <td>${s.name}</td>
-          <td>${s.description || '-'}</td>
+          <td>${s.name}</td><td>${s.description || '-'}</td>
           <td><span style="display:inline-block;width:16px;height:16px;border-radius:4px;background:${s.color};vertical-align:middle;"></span></td>
           <td>${s.active ? 'Sí' : 'No'}</td>
         </tr>
@@ -1712,12 +1489,9 @@
     }
 
     function renderStagesTable() {
-      const tbody = document.getElementById('stagesBody');
-      tbody.innerHTML = stages.map(s => `
+      document.getElementById('stagesBody').innerHTML = stages.map(s => `
         <tr>
-          <td>${s.name}</td>
-          <td>${s.description || '-'}</td>
-          <td>${s.sort_order}</td>
+          <td>${s.name}</td><td>${s.description || '-'}</td><td>${s.sort_order}</td>
           <td><span style="display:inline-block;width:16px;height:16px;border-radius:4px;background:${s.color};vertical-align:middle;"></span></td>
           <td>${s.active ? 'Sí' : 'No'}</td>
         </tr>
@@ -1734,12 +1508,8 @@
       tbody.innerHTML = auditLog.map(log => `
         <tr>
           <td>${new Date(log.created_at).toLocaleString('es-PE')}</td>
-          <td>${log.user_email}</td>
-          <td>${log.project_name}</td>
-          <td>${log.type}</td>
-          <td>${log.from_status}</td>
-          <td>${log.to_status}</td>
-          <td>${log.comment}</td>
+          <td>${log.user_email}</td><td>${log.project_name}</td><td>${log.type}</td>
+          <td>${log.from_status}</td><td>${log.to_status}</td><td>${log.comment}</td>
         </tr>
       `).join('');
     }
@@ -1747,13 +1517,12 @@
     // ==================== USUARIOS (solo Admin) ====================
     function renderUsers() {
       if (!canManageUsers()) return;
-      const tbody = document.getElementById('usersBody');
-      tbody.innerHTML = allProfiles.map(p => `
+      document.getElementById('usersBody').innerHTML = allProfiles.map(p => `
         <tr>
           <td>${p.full_name || '-'}</td>
           <td>${p.email}</td>
           <td>
-            <select onchange="changeUserRole('${p.id}', this.value)" ${p.id === currentUser.id ? 'title="No puedes cambiar tu propio rol desde aquí"' : ''}>
+            <select onchange="changeUserRole('${p.id}', this.value)">
               <option value="pendiente" ${p.role === 'pendiente' ? 'selected' : ''}>Pendiente</option>
               <option value="admin" ${p.role === 'admin' ? 'selected' : ''}>Admin</option>
               <option value="lider" ${p.role === 'lider' ? 'selected' : ''}>Líder</option>
@@ -1775,18 +1544,16 @@
     }
 
     // ==================== DASHBOARD ====================
-    let dashboardCharts = { risk: null, state: null, variance: null, milestone: null };
+    let dashboardCharts = { risk: null, state: null, variance: null, riskType: null };
 
     function renderDashboard() {
       document.getElementById('totalProjects').textContent = projects.length;
       document.getElementById('executingProjects').textContent = projects.filter(p => p.status === 'Activo').length;
 
-      const completedMilestones = milestones.filter(m => m.status === 'Completado').length;
-      const completionRate = milestones.length > 0 ? Math.round((completedMilestones / milestones.length) * 100) : 0;
-      document.getElementById('completionRate').textContent = completionRate + '%';
+      const projectsAtRisk = projects.filter(p => risks.some(r => r.project_id === p.id && r.status !== 'Cerrado')).length;
+      document.getElementById('projectsAtRiskMetric').textContent = projectsAtRisk;
 
-      const criticalRisks = risks.filter(r => r.score >= 15).length;
-      document.getElementById('criticalCount').textContent = criticalRisks;
+      document.getElementById('openRisksMetric').textContent = risks.filter(r => r.status === 'Abierto').length;
 
       renderCharts();
     }
@@ -1794,6 +1561,7 @@
     function renderCharts() {
       const riskCounts = {
         abierto: risks.filter(r => r.status === 'Abierto').length,
+        seguimiento: risks.filter(r => r.status === 'En seguimiento').length,
         mitigado: risks.filter(r => r.status === 'Mitigado').length,
         cerrado: risks.filter(r => r.status === 'Cerrado').length
       };
@@ -1801,8 +1569,8 @@
       dashboardCharts.risk = new Chart(document.getElementById('riskChart'), {
         type: 'pie',
         data: {
-          labels: ['Abierto', 'Mitigado', 'Cerrado'],
-          datasets: [{ data: [riskCounts.abierto, riskCounts.mitigado, riskCounts.cerrado], backgroundColor: ['#E24B4A', '#BA7517', '#0ca30c'] }]
+          labels: ['Abierto', 'En seguimiento', 'Mitigado', 'Cerrado'],
+          datasets: [{ data: [riskCounts.abierto, riskCounts.seguimiento, riskCounts.mitigado, riskCounts.cerrado], backgroundColor: ['#E24B4A', '#BA7517', '#378ADD', '#0ca30c'] }]
         },
         options: { responsive: true, maintainAspectRatio: false }
       });
@@ -1816,10 +1584,7 @@
       if (dashboardCharts.state) dashboardCharts.state.destroy();
       dashboardCharts.state = new Chart(document.getElementById('stateChart'), {
         type: 'bar',
-        data: {
-          labels: ['Pendiente', 'Activo', 'Pausado', 'Finalizado'],
-          datasets: [{ label: 'Cantidad de Proyectos', data: [stateCounts.pendiente, stateCounts.activo, stateCounts.pausado, stateCounts.finalizado], backgroundColor: '#378ADD' }]
-        },
+        data: { labels: ['Pendiente', 'Activo', 'Pausado', 'Finalizado'], datasets: [{ label: 'Cantidad de Proyectos', data: [stateCounts.pendiente, stateCounts.activo, stateCounts.pausado, stateCounts.finalizado], backgroundColor: '#378ADD' }] },
         options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true } } }
       });
 
@@ -1832,46 +1597,50 @@
       if (dashboardCharts.variance) dashboardCharts.variance.destroy();
       dashboardCharts.variance = new Chart(document.getElementById('varianceChart'), {
         type: 'bar',
-        data: {
-          labels: projects.map(p => p.name.substring(0, 20)),
-          datasets: [{ label: 'Varianza (días)', data: varianceData, backgroundColor: varianceData.map(v => v > 0 ? '#E24B4A' : '#0ca30c') }]
-        },
+        data: { labels: projects.map(p => p.name.substring(0, 20)), datasets: [{ label: 'Varianza (días)', data: varianceData, backgroundColor: varianceData.map(v => v > 0 ? '#E24B4A' : '#0ca30c') }] },
         options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true } } }
       });
 
-      const completedByStage = stages.map(s => milestones.filter(m => m.stage === s.name && m.status === 'Completado').length);
-      if (dashboardCharts.milestone) dashboardCharts.milestone.destroy();
-      dashboardCharts.milestone = new Chart(document.getElementById('milestoneBurnChart'), {
-        type: 'line',
-        data: {
-          labels: stages.map(s => s.name),
-          datasets: [{ label: 'Hitos Completados por Etapa', data: completedByStage, borderColor: '#378ADD', tension: 0.4 }]
-        },
+      const riskTypes = ['Retraso de cronograma', 'Afecta la calidad', 'Afecta el presupuesto', 'Rompe operatividad'];
+      const riskTypeCounts = riskTypes.map(t => risks.filter(r => r.risk_type === t).length);
+      if (dashboardCharts.riskType) dashboardCharts.riskType.destroy();
+      dashboardCharts.riskType = new Chart(document.getElementById('riskTypeChart'), {
+        type: 'bar',
+        data: { labels: riskTypes, datasets: [{ label: 'Riesgos por Tipo', data: riskTypeCounts, backgroundColor: '#BA7517' }] },
         options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true } } }
       });
     }
 
     // ==================== EXPORT ====================
     function exportToExcel() {
-      let csv = 'Nombre,Cliente,Servicio,Inicio,Fin,Estado,Etapa,Riesgos,Ciclo Real,Ciclo Esperado,Varianza\n';
+      let csv = 'Nombre,RUC,Contacto,Cliente,Servicio,Estado,Etapa,Riesgos Abiertos,Ciclo Real,Ciclo Esperado,Cliente FI de Entrada,Inicio,Fin\n';
       projects.forEach(p => {
-        const projectRisks = risks.filter(r => r.project_id === p.id).length;
+        const projectRisks = risks.filter(r => r.project_id === p.id && r.status !== 'Cerrado').length;
         const startDate = new Date(p.start_date);
         const endDate = p.end_date ? new Date(p.end_date) : new Date();
         const realCycle = Math.floor((endDate - startDate) / (1000 * 60 * 60 * 24));
-        const variance = realCycle - p.expected_cycle;
-        csv += `"${p.name}","${p.client}","${p.service}","${p.start_date}","${p.end_date || ''}","${p.status}","${p.stage}","${projectRisks}","${realCycle}","${p.expected_cycle}","${variance}"\n`;
+        csv += `"${p.name}","${p.ruc || ''}","${p.contact || ''}","${p.client}","${p.service}","${p.status}","${p.stage}","${projectRisks}","${realCycle}","${p.expected_cycle}","${p.advance_payment ? 'Sí' : 'No'}","${p.start_date}","${p.end_date || ''}"\n`;
       });
       downloadCSV(csv, 'proyectos.csv');
     }
 
     function exportRisksToExcel() {
-      let csv = 'Proyecto,Correlativo,Detalle,Impacto,Probabilidad,Score,Estado,Cerrado\n';
+      let csv = 'Proyecto,Correlativo,Detalle,Tipo de Riesgo,Plan de Mitigacion,Responsable,Fecha Cumplimiento,Estado\n';
       risks.forEach(r => {
         const project = projects.find(p => p.id === r.project_id);
-        csv += `"${project ? project.name : 'N/A'}","${r.correlative}","${r.detail}","${r.impact}","${r.probability}","${r.score}","${r.status}","${r.is_closed ? 'Sí' : 'No'}"\n`;
+        csv += `"${project ? project.name : 'N/A'}","${r.correlative}","${r.detail}","${r.risk_type}","${r.mitigation || ''}","${r.mitigation_responsible || ''}","${r.mitigation_due_date || ''}","${r.status}"\n`;
       });
       downloadCSV(csv, 'riesgos.csv');
+    }
+
+    function exportInvoicesToExcel() {
+      let csv = 'Proyecto,RUC,Serie,Numero,Fecha Emision,Fecha Vencimiento,Base,IGV,Total,Detraccion,Voucher,Estado,Fecha Pago,Recibos Honorarios\n';
+      [...invoices].sort((a, b) => (a.number || '').localeCompare(b.number || '', undefined, { numeric: true })).forEach(i => {
+        const project = projects.find(p => p.id === i.project_id);
+        const receipts = (i.fee_receipts || []).map(r => `${r.provider} (${r.registration_number})`).join(' | ');
+        csv += `"${project ? project.name : 'N/A'}","${i.ruc || ''}","${i.series}","${i.number}","${i.issue_date}","${i.due_date}","${i.base}","${i.igv}","${i.total}","${i.detraction}","${i.voucher_link || ''}","${i.status}","${i.payment_date || ''}","${receipts}"\n`;
+      });
+      downloadCSV(csv, 'facturacion.csv');
     }
 
     function exportAuditToExcel() {

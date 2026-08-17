@@ -2,6 +2,12 @@
 -- Sistema de Gestión de Proyectos TI - ARQUIE
 -- Esquema completo: tablas, roles, RLS y alta automática de usuarios.
 -- Ejecutar una sola vez en Supabase: Dashboard → SQL Editor → New query → pegar todo → Run.
+--
+-- Si ya habías corrido una versión anterior de este esquema (con
+-- milestones/hitos e impacto-probabilidad en riesgos), corre primero:
+--   drop table if exists public.milestones cascade;
+--   alter table public.risks drop column if exists impact, drop column if exists probability, drop column if exists score, drop column if exists is_closed;
+-- antes de ejecutar el resto de este archivo.
 -- ============================================================
 
 -- ---------- 1. Perfiles de usuario (roles) ----------
@@ -16,7 +22,6 @@ create table if not exists public.profiles (
 
 comment on table public.profiles is 'Un registro por usuario del equipo, con su rol (Admin/Líder/Asistente/Finanzas). Los nuevos usuarios entran en "pendiente" hasta que un Admin les asigna rol.';
 
--- Función auxiliar: rol del usuario que hace la petición (evita recursión en RLS).
 create or replace function public.get_my_role()
 returns text
 language sql
@@ -27,7 +32,6 @@ as $$
   select role from public.profiles where id = auth.uid()
 $$;
 
--- Alta automática de perfil cuando alguien se registra (Supabase Auth → auth.users).
 create or replace function public.handle_new_user()
 returns trigger
 language plpgsql
@@ -86,6 +90,8 @@ create table if not exists public.projects (
   id bigint generated always as identity primary key,
   name text not null,
   client text not null,
+  ruc text default '',
+  contact text default '',
   service text not null,
   status text not null default 'Pendiente',
   start_date date not null,
@@ -93,43 +99,83 @@ create table if not exists public.projects (
   expected_cycle int not null,
   stage text not null,
   drive_link text default '',
+  advance_payment boolean not null default false,
   created_by uuid references public.profiles(id),
   created_at timestamptz not null default now()
 );
 
+-- Migración suave si la tabla ya existía sin estas columnas:
+alter table public.projects add column if not exists ruc text default '';
+alter table public.projects add column if not exists contact text default '';
+alter table public.projects add column if not exists advance_payment boolean not null default false;
+
 -- ---------- 4. Riesgos ----------
+-- Modelo por tipo de riesgo (sin score numérico de impacto x probabilidad).
 create table if not exists public.risks (
   id bigint generated always as identity primary key,
   project_id bigint not null references public.projects(id) on delete cascade,
   correlative int not null default 1,
   detail text not null,
-  impact text not null check (impact in ('Bajo', 'Medio', 'Alto', 'Crítico')),
-  probability text not null check (probability in ('Baja', 'Media', 'Alta')),
-  score int not null default 0,
-  status text not null default 'Abierto',
-  is_closed boolean not null default false,
+  risk_type text not null check (risk_type in (
+    'Retraso de cronograma', 'Afecta la calidad', 'Afecta el presupuesto', 'Rompe operatividad'
+  )),
   mitigation text default '',
+  mitigation_responsible text default '',
+  mitigation_due_date date,
+  status text not null default 'Abierto'
+    check (status in ('Abierto', 'En seguimiento', 'Mitigado', 'Cerrado')),
   registration_date date not null default current_date,
   created_by uuid references public.profiles(id),
   created_at timestamptz not null default now()
 );
 
--- ---------- 5. Hitos / Bitácora ----------
-create table if not exists public.milestones (
+-- Migración suave: si la tabla ya existía con el modelo viejo (impact/probability/score/is_closed),
+-- descomenta y corre esto ANTES de la sección de arriba:
+-- alter table public.risks drop column if exists impact;
+-- alter table public.risks drop column if exists probability;
+-- alter table public.risks drop column if exists score;
+-- alter table public.risks drop column if exists is_closed;
+-- alter table public.risks add column if not exists risk_type text;
+-- alter table public.risks add column if not exists mitigation_responsible text default '';
+-- alter table public.risks add column if not exists mitigation_due_date date;
+
+-- ---------- 5. Facturación (reemplaza a Hitos/Bitácora) ----------
+create table if not exists public.invoices (
   id bigint generated always as identity primary key,
   project_id bigint not null references public.projects(id) on delete cascade,
-  name text not null,
-  stage text not null,
-  responsible text not null,
-  planned_date date not null,
-  actual_date date,
-  status text not null default 'Programado',
-  progress int not null default 0 check (progress between 0 and 100),
-  invoices text default '',
-  lessons_learned text default '',
+  ruc text default '',
+  series text not null,
+  number text not null,
+  issue_date date not null,
+  due_date date not null,
+  base numeric(12,2) not null default 0,
+  igv numeric(12,2) not null default 0,
+  total numeric(12,2) not null default 0,
+  detraction numeric(12,2) not null default 0,
+  voucher_link text default '',
+  status text not null default 'Pendiente por pagar' check (status in ('Pendiente por pagar', 'Pagado')),
+  payment_date date,
   created_by uuid references public.profiles(id),
   created_at timestamptz not null default now()
 );
+
+-- Recibos por Honorarios (RxH), uno o más por factura.
+create table if not exists public.fee_receipts (
+  id bigint generated always as identity primary key,
+  invoice_id bigint not null references public.invoices(id) on delete cascade,
+  provider text not null,
+  registration_number text not null,
+  due_date date,
+  payment_date date,
+  bank text default '',
+  total_to_pay numeric(12,2) not null default 0,
+  total_paid numeric(12,2) not null default 0,
+  created_at timestamptz not null default now()
+);
+
+-- Tabla vieja de hitos, si existía, ya no se usa. Elimínala manualmente
+-- cuando confirmes que no necesitas conservar el histórico:
+--   drop table if exists public.milestones cascade;
 
 -- ---------- 6. Auditoría ----------
 create table if not exists public.audit_log (
@@ -151,16 +197,15 @@ alter table public.statuses enable row level security;
 alter table public.stages enable row level security;
 alter table public.projects enable row level security;
 alter table public.risks enable row level security;
-alter table public.milestones enable row level security;
+alter table public.invoices enable row level security;
+alter table public.fee_receipts enable row level security;
 alter table public.audit_log enable row level security;
 
 -- ---------- profiles ----------
--- Cualquier usuario ve su propio perfil; cualquiera con rol asignado ve a todo el equipo.
 drop policy if exists "profiles_select" on public.profiles;
 create policy "profiles_select" on public.profiles
   for select using (auth.uid() = id or public.get_my_role() <> 'pendiente');
 
--- Solo Admin cambia roles/datos de otros usuarios.
 drop policy if exists "profiles_update_admin" on public.profiles;
 create policy "profiles_update_admin" on public.profiles
   for update using (public.get_my_role() = 'admin');
@@ -183,7 +228,9 @@ create policy "stages_write" on public.stages
   for all using (public.get_my_role() = 'admin') with check (public.get_my_role() = 'admin');
 
 -- ---------- projects ----------
--- Admin y Líder crean/editan/eliminan. Todos los roles con acceso (no pendientes) pueden ver.
+-- Admin y Líder crean/editan/eliminan (Admin elimina). Todos los roles con
+-- acceso (no pendientes) pueden ver, INCLUYENDO Finanzas (necesita ver el
+-- proyecto para facturar), salvo que se decida lo contrario más adelante.
 drop policy if exists "projects_select" on public.projects;
 create policy "projects_select" on public.projects
   for select using (public.get_my_role() <> 'pendiente');
@@ -201,7 +248,6 @@ create policy "projects_delete" on public.projects
   for delete using (public.get_my_role() = 'admin');
 
 -- ---------- risks ----------
--- Admin, Líder y Asistente crean/editan. Solo Admin y Líder eliminan.
 drop policy if exists "risks_select" on public.risks;
 create policy "risks_select" on public.risks
   for select using (public.get_my_role() <> 'pendiente');
@@ -218,26 +264,16 @@ drop policy if exists "risks_delete" on public.risks;
 create policy "risks_delete" on public.risks
   for delete using (public.get_my_role() in ('admin', 'lider'));
 
--- ---------- milestones ----------
--- Admin, Líder y Asistente crean hitos y eliminan (Líder+Admin eliminan).
--- Finanzas también puede actualizar (la app restringe en la UI a los campos de
--- facturación; a nivel de base de datos el permiso de UPDATE es de fila completa,
--- documentado como límite conocido — ver README).
-drop policy if exists "milestones_select" on public.milestones;
-create policy "milestones_select" on public.milestones
-  for select using (public.get_my_role() <> 'pendiente');
+-- ---------- invoices / fee_receipts (Facturación) ----------
+-- Exclusivo del rol Finanzas. Ni siquiera Admin puede ver estos datos
+-- (decisión explícita: confidencialidad de información de pagos/RxH).
+drop policy if exists "invoices_all" on public.invoices;
+create policy "invoices_all" on public.invoices
+  for all using (public.get_my_role() = 'finanzas') with check (public.get_my_role() = 'finanzas');
 
-drop policy if exists "milestones_insert" on public.milestones;
-create policy "milestones_insert" on public.milestones
-  for insert with check (public.get_my_role() in ('admin', 'lider', 'asistente'));
-
-drop policy if exists "milestones_update" on public.milestones;
-create policy "milestones_update" on public.milestones
-  for update using (public.get_my_role() in ('admin', 'lider', 'asistente', 'finanzas'));
-
-drop policy if exists "milestones_delete" on public.milestones;
-create policy "milestones_delete" on public.milestones
-  for delete using (public.get_my_role() in ('admin', 'lider'));
+drop policy if exists "fee_receipts_all" on public.fee_receipts;
+create policy "fee_receipts_all" on public.fee_receipts
+  for all using (public.get_my_role() = 'finanzas') with check (public.get_my_role() = 'finanzas');
 
 -- ---------- audit_log ----------
 drop policy if exists "audit_select" on public.audit_log;
